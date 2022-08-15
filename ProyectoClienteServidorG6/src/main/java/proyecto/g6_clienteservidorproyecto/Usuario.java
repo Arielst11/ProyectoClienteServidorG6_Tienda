@@ -5,7 +5,6 @@
  */
 package proyecto.g6_clienteservidorproyecto;
 import Conexion.Conexion;
-import Conexion.GestionObjeto;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -91,7 +90,7 @@ protected int cedula;
                         + "Password: " + password);                            
             } 
         }catch (SQLException ex){
-            Logger.getLogger(GestionObjeto.class.getName()).log(Level.SEVERE,null,ex);
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE,null,ex);
         }
         
     }    
@@ -123,7 +122,7 @@ protected int cedula;
                         + "Password: " + password);                            
             } 
         }catch (SQLException ex){
-            Logger.getLogger(GestionObjeto.class.getName()).log(Level.SEVERE,null,ex);
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE,null,ex);
         }
         
     }    
@@ -156,7 +155,7 @@ protected int cedula;
                         + "Password: " + password);                            
             } 
         }catch (SQLException ex){
-            Logger.getLogger(GestionObjeto.class.getName()).log(Level.SEVERE,null,ex);
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE,null,ex);
         }
         
     }  
@@ -193,7 +192,7 @@ protected int cedula;
             } 
             }  
         }catch (SQLException ex){
-            Logger.getLogger(GestionObjeto.class.getName()).log(Level.SEVERE,null,ex);
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE,null,ex);
         }
         
     }    
@@ -222,7 +221,7 @@ protected int cedula;
             } 
             }  
         }catch (SQLException ex){
-            Logger.getLogger(GestionObjeto.class.getName()).log(Level.SEVERE,null,ex);
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE,null,ex);
         }
         
     }    
@@ -251,7 +250,7 @@ protected int cedula;
             } 
             }  
         }catch (SQLException ex){
-            Logger.getLogger(GestionObjeto.class.getName()).log(Level.SEVERE,null,ex);
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE,null,ex);
         }
         
     }  

@@ -14,11 +14,17 @@
                 <Property name="text" type="java.lang.String" value="Registrar Usuario"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMborrarUsuario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Borrar Usuario"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Herramientas"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Menu>
       </SubComponents>

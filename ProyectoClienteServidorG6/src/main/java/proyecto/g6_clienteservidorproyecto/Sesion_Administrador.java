@@ -30,6 +30,7 @@ public class Sesion_Administrador extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMregistrarUsuario = new javax.swing.JMenuItem();
+        jMborrarUsuario = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -39,9 +40,13 @@ public class Sesion_Administrador extends javax.swing.JFrame {
         jMregistrarUsuario.setText("Registrar Usuario");
         jMenu1.add(jMregistrarUsuario);
 
+        jMborrarUsuario.setText("Borrar Usuario");
+        jMenu1.add(jMborrarUsuario);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Herramientas");
+        jMenu2.setToolTipText("");
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -96,6 +101,7 @@ public class Sesion_Administrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem jMborrarUsuario;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
