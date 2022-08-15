@@ -260,7 +260,54 @@ protected int cedula;
    
   }   
  
-
+ 
+ public void insertarUsuario(Usuario usuario){
+     
+     if(usuario instanceof Cliente_Regular){
+         
+      String SQL_INSERT_USER = "insert into Usuario_Regular (ID_cedulaUsuarioRegular,"
+            + "nombreUsuarioRegular,nombreUsuarioUsuarioRegular,contrasenaUsuarioUsuarioRegular) values (?,?,?,?)";   
+         
+       try{
+            PreparedStatement sentencia = Conexion.getConexion().prepareCall(SQL_INSERT_USER);
+            //Envío los parámetros definidos como signos de pregunta en el query
+            sentencia.setString(1, String.valueOf(this.cedula));
+            sentencia.setString(2, this.nombre);
+            sentencia.setString(3, this.username);
+            sentencia.setString(4, this.password);
+            if (sentencia.executeUpdate()>0){// Si es válido devuelve un 1, si no sería falso
+                JOptionPane.showMessageDialog(null, "Usuario regular registrado");
+            }
+        }catch(SQLException ex){
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE,null,ex);
+        } 
+     }
+     
+     
+     
+     if(usuario instanceof Cliente_VIP){ 
+     String SQL_INSERT_USER = "insert into Usuario_VIP (ID_cedulaUsuarioVIP,"
+            + "nombreUsuarioVIP,nombreUsuarioUsuarioVIP,contrasenaUsuarioUsuarioVIP) values (?,?,?,?)";     
+       try{
+            PreparedStatement sentencia = Conexion.getConexion().prepareCall(SQL_INSERT_USER);
+            //Envío los parámetros definidos como signos de pregunta en el query
+            sentencia.setString(1, String.valueOf(this.cedula));
+            sentencia.setString(2, this.nombre);
+            sentencia.setString(3, this.username);
+            sentencia.setString(4, this.password);
+            if (sentencia.executeUpdate()>0){// Si es válido devuelve un 1, si no sería falso
+                JOptionPane.showMessageDialog(null, "Usuario regular registrado");
+            }
+        }catch(SQLException ex){
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE,null,ex);
+        } 
+     }      
+     }
+     
+ 
+ 
+ 
+     
      
  }
- 
+   

@@ -28,6 +28,7 @@ public class AdministradorControl extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jBcerrarSesion = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMagregarUsuarios = new javax.swing.JMenuItem();
@@ -39,12 +40,29 @@ public class AdministradorControl extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jBcerrarSesion.setText("Cerrar sesión");
+        jBcerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBcerrarSesionActionPerformed(evt);
+            }
+        });
+
         jMenu1.setText("Usuarios");
 
         jMagregarUsuarios.setText("Agregar Usuario");
+        jMagregarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMagregarUsuariosActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMagregarUsuarios);
 
         jMBorrarUsuario.setText("Eliminar Usuario");
+        jMBorrarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMBorrarUsuarioActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMBorrarUsuario);
 
         jMenuBar1.add(jMenu1);
@@ -68,15 +86,46 @@ public class AdministradorControl extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 405, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(262, Short.MAX_VALUE)
+                .addComponent(jBcerrarSesion)
+                .addGap(45, 45, 45))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 506, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(399, Short.MAX_VALUE)
+                .addComponent(jBcerrarSesion)
+                .addGap(85, 85, 85))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBcerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBcerrarSesionActionPerformed
+        UsuarioActualStatic.usuarioActual = null;
+        frm_sesion inicio = new frm_sesion();
+        inicio.setVisible(true);
+        this.dispose();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBcerrarSesionActionPerformed
+
+    private void jMagregarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMagregarUsuariosActionPerformed
+RegistroUsuario registro = new RegistroUsuario();
+registro.setVisible(true);
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMagregarUsuariosActionPerformed
+
+    private void jMBorrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMBorrarUsuarioActionPerformed
+BorrarUsuario borrar = new BorrarUsuario();
+borrar.setVisible(true);
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMBorrarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,6 +163,7 @@ public class AdministradorControl extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBcerrarSesion;
     private javax.swing.JMenuItem jMBorrarUsuario;
     private javax.swing.JMenuItem jMagregarUsuarios;
     private javax.swing.JMenuItem jMeliminarArticulos;
