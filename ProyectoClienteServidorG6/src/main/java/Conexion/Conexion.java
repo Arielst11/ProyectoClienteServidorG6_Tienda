@@ -24,6 +24,7 @@ public class Conexion {
     private static final String user = "root";            // companera puede cambiar este valor para que funcione en su computadora
     private static final String password = "X2xlastx2x?"; // companera puede cambiar este valor para que funcione en su computadora
     
+    //hola 
     private Conexion (){
           
         try{
