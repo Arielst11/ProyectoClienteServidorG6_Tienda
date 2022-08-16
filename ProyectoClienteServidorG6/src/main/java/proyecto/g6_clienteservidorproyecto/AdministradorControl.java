@@ -32,11 +32,9 @@ public class AdministradorControl extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMagregarUsuarios = new javax.swing.JMenuItem();
-        jMBorrarUsuario = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMverArticulos = new javax.swing.JMenuItem();
-        jMeliminarArticulos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,14 +55,6 @@ public class AdministradorControl extends javax.swing.JFrame {
         });
         jMenu1.add(jMagregarUsuarios);
 
-        jMBorrarUsuario.setText("Eliminar Usuario");
-        jMBorrarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMBorrarUsuarioActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMBorrarUsuario);
-
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Artículos");
@@ -74,9 +64,6 @@ public class AdministradorControl extends javax.swing.JFrame {
 
         jMverArticulos.setText("Ver Artículos");
         jMenu2.add(jMverArticulos);
-
-        jMeliminarArticulos.setText("Eliminar Artículos");
-        jMenu2.add(jMeliminarArticulos);
 
         jMenuBar1.add(jMenu2);
 
@@ -119,14 +106,6 @@ registro.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jMagregarUsuariosActionPerformed
 
-    private void jMBorrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMBorrarUsuarioActionPerformed
-BorrarUsuario borrar = new BorrarUsuario();
-borrar.setVisible(true);
-
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMBorrarUsuarioActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -164,9 +143,7 @@ borrar.setVisible(true);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBcerrarSesion;
-    private javax.swing.JMenuItem jMBorrarUsuario;
     private javax.swing.JMenuItem jMagregarUsuarios;
-    private javax.swing.JMenuItem jMeliminarArticulos;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
