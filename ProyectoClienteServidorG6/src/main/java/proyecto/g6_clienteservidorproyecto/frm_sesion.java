@@ -124,6 +124,20 @@ public class frm_sesion extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_IngresarAdministradorActionPerformed
 
     private void btn_ingresarClienteVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarClienteVIPActionPerformed
+
+    String username = txt_usuario.getText();
+    String password = String.valueOf(txt_password.getPassword());
+    
+    Cliente_VIP clienteVIP = new Cliente_VIP();
+    clienteVIP.tomarDatosDeBaseDeDatosEIniciarSesion(clienteVIP, username, password);
+    
+    if(clienteVIP.validarInicio(clienteVIP, username, password)){
+     UsuarioMenu menuUsuario = new UsuarioMenu();
+     menuUsuario.setVisible(true);
+     this.dispose();
+    }
+
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_ingresarClienteVIPActionPerformed
 
@@ -137,6 +151,19 @@ this.dispose();
     }//GEN-LAST:event_btn_IngresarAdministradorMouseClicked
 
     private void btn_ingresarClienteRegularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarClienteRegularActionPerformed
+   
+    String username = txt_usuario.getText();
+    String password = String.valueOf(txt_password.getPassword());
+    
+    Cliente_Regular clienteReg = new Cliente_Regular();
+    clienteReg.tomarDatosDeBaseDeDatosEIniciarSesion(clienteReg, username, password);
+    
+    if(clienteReg.validarInicio(clienteReg, username, password)){
+     UsuarioMenu menuUsuario = new UsuarioMenu();
+     menuUsuario.setVisible(true);
+     this.dispose();
+    }
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_ingresarClienteRegularActionPerformed
 
