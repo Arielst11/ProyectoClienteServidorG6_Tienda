@@ -11,6 +11,6 @@ package proyecto.g6_clienteservidorproyecto;
  */
  public class UsuarioActualStatic {
   static Usuario usuarioActual;
-    
+  static double descuento;   
     
 }

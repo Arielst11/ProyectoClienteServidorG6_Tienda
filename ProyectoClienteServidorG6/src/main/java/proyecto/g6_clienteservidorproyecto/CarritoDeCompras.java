@@ -23,8 +23,22 @@ public class CarritoDeCompras extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         cargarArticulosCarrito();
         jLprecioDeObjetos.setText(String.valueOf(precioDeTodosLosItems));
+        jLdescuento.setText(String.valueOf(UsuarioActualStatic.descuento));
     }
 
+    
+    public void limpiarCarritoYlabels(){
+Objeto.arrayListCarritoDeCompras.clear();
+DefaultTableModel contenidoTabla = (DefaultTableModel) jTArticulos.getModel();
+for(int i = contenidoTabla.getRowCount() ; i != 0 ; i--){
+ contenidoTabla.removeRow(0);   
+}
+cargarArticulosCarrito();
+jLprecioDeObjetos.setText("0");
+    }
+    
+    
+    
   public float precioDeTodosLosItems = 0;
    
     public void cargarArticulosCarrito(){
@@ -71,11 +85,12 @@ public class CarritoDeCompras extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTArticulos = new javax.swing.JTable();
         jBsalirAlMenu = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jBvaciarCarrito = new javax.swing.JButton();
         jLprecioDeObjetos = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jBejecutarCompra = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLdescuento = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,18 +125,33 @@ public class CarritoDeCompras extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("jButton1");
+        jBvaciarCarrito.setText("Vaciar carrito");
+        jBvaciarCarrito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBvaciarCarritoActionPerformed(evt);
+            }
+        });
 
         jLprecioDeObjetos.setBackground(new java.awt.Color(0, 0, 0));
         jLprecioDeObjetos.setForeground(new java.awt.Color(0, 0, 0));
         jLprecioDeObjetos.setText("#############");
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Descuento");
+        jLabel2.setToolTipText("");
 
-        jButton2.setText("jButton2");
+        jBejecutarCompra.setText("Ejecutar compra");
+        jBejecutarCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBejecutarCompraActionPerformed(evt);
+            }
+        });
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Precio de los objetos");
+
+        jLdescuento.setForeground(new java.awt.Color(0, 0, 0));
+        jLdescuento.setText("####");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -136,21 +166,24 @@ public class CarritoDeCompras extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(lbl_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(213, 213, 213)
-                        .addComponent(jButton1)
+                        .addComponent(jBvaciarCarrito)
                         .addGap(94, 94, 94))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
                         .addGap(18, 18, 18)
-                        .addComponent(jLprecioDeObjetos)
-                        .addGap(219, 219, 219)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBsalirAlMenu)
-                        .addGap(32, 32, 32))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addComponent(jLabel2)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLdescuento)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLprecioDeObjetos)
+                                .addGap(219, 219, 219)
+                                .addComponent(jBejecutarCompra)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jBsalirAlMenu)
+                                .addGap(32, 32, 32))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,18 +191,20 @@ public class CarritoDeCompras extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_titulo)
-                    .addComponent(jButton1))
+                    .addComponent(jBvaciarCarrito))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBsalirAlMenu)
-                    .addComponent(jButton2)
+                    .addComponent(jBejecutarCompra)
                     .addComponent(jLprecioDeObjetos)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLdescuento))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -180,7 +215,9 @@ public class CarritoDeCompras extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -190,6 +227,25 @@ public class CarritoDeCompras extends javax.swing.JFrame {
         this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_jBsalirAlMenuActionPerformed
+
+    private void jBvaciarCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBvaciarCarritoActionPerformed
+limpiarCarritoYlabels();
+    }//GEN-LAST:event_jBvaciarCarritoActionPerformed
+
+    private void jBejecutarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBejecutarCompraActionPerformed
+
+        double preciofinal = Double.valueOf(jLprecioDeObjetos.getText());
+        double Descuento = UsuarioActualStatic.descuento;
+        JOptionPane.showMessageDialog(null, "Factura ejecutada por un total de " + (preciofinal - (preciofinal*Descuento)) + "\n"
+        + "descuento: " + Descuento + "\n"
+                + "precio de los objetos sin descuento: " + preciofinal);
+       limpiarCarritoYlabels(); 
+        
+        
+        
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBejecutarCompraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,11 +283,12 @@ public class CarritoDeCompras extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBejecutarCompra;
     private javax.swing.JButton jBsalirAlMenu;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jBvaciarCarrito;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLdescuento;
     private javax.swing.JLabel jLprecioDeObjetos;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

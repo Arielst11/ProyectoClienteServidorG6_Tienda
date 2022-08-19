@@ -71,7 +71,7 @@ public class frm_sesion extends javax.swing.JFrame {
         getContentPane().add(btn_IngresarAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 210, -1));
 
         lbl_imgCeleste.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Contains/Subtract.png"))); // NOI18N
-        getContentPane().add(lbl_imgCeleste, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, -1, -1));
+        getContentPane().add(lbl_imgCeleste, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 273, -1, 260));
 
         lbl_imgPersonas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Contains/image 11.png"))); // NOI18N
         getContentPane().add(lbl_imgPersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
@@ -134,6 +134,7 @@ public class frm_sesion extends javax.swing.JFrame {
     if(clienteVIP.validarInicio(clienteVIP, username, password)){
      UsuarioMenu menuUsuario = new UsuarioMenu();
      menuUsuario.setVisible(true);
+     UsuarioActualStatic.descuento = 0.20;
      this.dispose();
     }
 
@@ -162,6 +163,8 @@ this.dispose();
      UsuarioMenu menuUsuario = new UsuarioMenu();
      menuUsuario.setVisible(true);
      this.dispose();
+     UsuarioActualStatic.descuento = 0.05;
+     
     }
 
         // TODO add your handling code here:
