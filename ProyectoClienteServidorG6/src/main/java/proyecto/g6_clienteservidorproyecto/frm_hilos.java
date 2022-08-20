@@ -17,6 +17,7 @@ public class frm_hilos extends javax.swing.JFrame {
      */
     public frm_hilos() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     
     public JLabel getjLabelCarro1 (){

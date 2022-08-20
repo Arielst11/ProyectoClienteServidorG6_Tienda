@@ -296,7 +296,7 @@ protected int cedula;
             sentencia.setString(3, this.username);
             sentencia.setString(4, this.password);
             if (sentencia.executeUpdate()>0){// Si es válido devuelve un 1, si no sería falso
-                JOptionPane.showMessageDialog(null, "Usuario regular registrado");
+                JOptionPane.showMessageDialog(null, "Usuario VIP registrado");
             }
         }catch(SQLException ex){
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE,null,ex);

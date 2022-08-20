@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import proyecto.g6_clienteservidorproyecto.Objeto;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 /**
  *
  * @author asanc
@@ -22,7 +24,11 @@ public class Objeto {
     private String descripcionArticulo;
     private int cantidadArticulo;
     
+    // array list static para el carrito de compras!!!!
     
+    static ArrayList<Objeto> arrayListCarritoDeCompras = new ArrayList<Objeto>();
+    
+    //  array list static para el carrito de compras!!!!
     /**
      * @return the codigoArticulo
      */
@@ -92,7 +98,7 @@ public class Objeto {
     public void setCantidadArticulo(int cantidadArticulo) {
         this.cantidadArticulo = cantidadArticulo;
     }
-   
+   /*  // solo si da tiempo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     /// metodo para insertar objetos
     private static final String SQL_INSERT_OBJECT = "insert into Articulos (codigoArticulo,"
             + "precioArticulo,nombreArticulo,descripcionArticulo,cantidad) values (?,?,?,?,?)";
@@ -119,38 +125,77 @@ public class Objeto {
         }
         
     }
+       */ 
+    // metodo que retorna un arraylist con todos los articulos de la base de datos
+    public static ArrayList obtenerArticulos(){
+     
+    String SQL_SELECT_OBJETOS= "Select * from Articulos";
+    ArrayList<Objeto> arrayListObjetos = new ArrayList<Objeto>();
         
-    
-   
-    /// metodo para buscar todos los objetos
-    private static final String SQL_SELECT_OBJETOS= "Select * from Articulos";
-    
-    public void mostrarTodoObjeto (){
-        
-        try{
+            try{
             
            //Estamos haciendo uso de la clase conexión a la base de datos y mandando el script de traer todos los estudiantes
             PreparedStatement consulta= Conexion.getConexion().prepareStatement(SQL_SELECT_OBJETOS);
             ResultSet rs = consulta.executeQuery();
             
-            System.out.println("LISTADO DE OBJETOS EN EL SISTEMA:\n");
             
             while (rs!=null && rs.next()){
                 
-                System.out.print("Codigo Articulo: " + rs.getString(2)+",");
-                System.out.print("Precio Articulo: " + rs.getString(3)+",");
-                System.out.print("Nombre Articulo: " + rs.getString(4)+",");
-                System.out.print("Descripcion Articulo: " + rs.getString(5)+",");
-                System.out.print("Cantidad Articulo: " + rs.getString(6)+",");
-                System.out.println("");             
+                Objeto objetoDeBaseDeDatos = new Objeto();
+                objetoDeBaseDeDatos.setCodigoArticulo(Integer.parseInt(rs.getString(2)));
+                objetoDeBaseDeDatos.setPrecioArticulo(Float.valueOf(rs.getString(3)));
+                objetoDeBaseDeDatos.setNombreArticulo(rs.getString(4));
+                objetoDeBaseDeDatos.setDescripcionArticulo(rs.getString(5));
+                objetoDeBaseDeDatos.setCantidadArticulo(Integer.parseInt(rs.getString(6)));
+                arrayListObjetos.add(objetoDeBaseDeDatos);
             }
 
         }catch(SQLException ex){
             Logger.getLogger(Objeto.class.getName()).log(Level.SEVERE,null,ex);
         }
-        
+                
+           return  arrayListObjetos;    
     }
     
+   // metodo para agregar al carrito por el codigo de item
+    public static void agregarAlCarrito(String id){
+     
+        String SQL_SELECT_OBJETOxID=  "select * from Articulos where codigoArticulo=?";
+         try{
+            PreparedStatement consulta = Conexion.getConexion().prepareStatement(SQL_SELECT_OBJETOxID);
+            consulta.setString(1, id);
+            ResultSet rs= consulta.executeQuery();
+            
+            if (rs.next()){
+                
+                Objeto objetoDeBaseDeDatos = new Objeto();
+                
+                objetoDeBaseDeDatos.setCodigoArticulo(Integer.parseInt(rs.getString(2)));
+                objetoDeBaseDeDatos.setPrecioArticulo(Float.valueOf(rs.getString(3)));
+                objetoDeBaseDeDatos.setNombreArticulo(rs.getString(4));
+                objetoDeBaseDeDatos.setDescripcionArticulo(rs.getString(5));
+               
+                arrayListCarritoDeCompras.add(objetoDeBaseDeDatos);
+                JOptionPane.showMessageDialog(null,"objeto agregado al carrito, código: " + id);
+                                
+            }else{
+                JOptionPane.showMessageDialog(null,"No fue encontrado el objeto dentro de la base de datos con el código: " + id);
+            }
+            
+        }catch (SQLException ex){
+            Logger.getLogger(Objeto.class.getName()).log(Level.SEVERE,null,ex);
+        }  
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
     /// metodo para buscar por codigo
     
     private static final String SQL_SELECT_OBJETO=  "select * from Articulos where codigoArticulo=?";
@@ -181,29 +226,8 @@ public class Objeto {
         }
         
     }
+    */
     
-    // metodo para borrar un objeto
-    
-    
-    private static final String SQL_DELETE_OBJECT = "delete from Articulos where codigoArticulo=?";
-    
-    public void eliminarObjetoxID (String id){
-        
-        try{
-            
-            PreparedStatement consulta = Conexion.getConexion().prepareStatement(SQL_DELETE_OBJECT);
-            consulta.setString(1, id);
-            if (consulta.executeUpdate()>0){
-                System.out.println("Información del objeto borrado de la base de datos.");
-            }else{
-                System.out.println("No fue encontrado el objeto en la base de datos.");
-            }
-            
-        }catch (SQLException ex){
-            Logger.getLogger(Objeto.class.getName()).log(Level.SEVERE,null,ex);
-        }
-        
-    }
     
     
     public void datosObjeto(int codigoArticulo, float precioArticulo, String nombreArticulo, String descripArticulo, int cantArticulo){

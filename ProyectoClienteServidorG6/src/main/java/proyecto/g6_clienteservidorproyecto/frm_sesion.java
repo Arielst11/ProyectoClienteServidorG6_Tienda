@@ -71,7 +71,7 @@ public class frm_sesion extends javax.swing.JFrame {
         getContentPane().add(btn_IngresarAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 210, -1));
 
         lbl_imgCeleste.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Contains/Subtract.png"))); // NOI18N
-        getContentPane().add(lbl_imgCeleste, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, -1, -1));
+        getContentPane().add(lbl_imgCeleste, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 273, -1, 260));
 
         lbl_imgPersonas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Contains/image 11.png"))); // NOI18N
         getContentPane().add(lbl_imgPersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
@@ -124,6 +124,21 @@ public class frm_sesion extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_IngresarAdministradorActionPerformed
 
     private void btn_ingresarClienteVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarClienteVIPActionPerformed
+
+    String username = txt_usuario.getText();
+    String password = String.valueOf(txt_password.getPassword());
+    
+    Cliente_VIP clienteVIP = new Cliente_VIP();
+    clienteVIP.tomarDatosDeBaseDeDatosEIniciarSesion(clienteVIP, username, password);
+    
+    if(clienteVIP.validarInicio(clienteVIP, username, password)){
+     UsuarioMenu menuUsuario = new UsuarioMenu();
+     menuUsuario.setVisible(true);
+     UsuarioActualStatic.descuento = 0.20;
+     this.dispose();
+    }
+
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_ingresarClienteVIPActionPerformed
 
@@ -137,6 +152,21 @@ this.dispose();
     }//GEN-LAST:event_btn_IngresarAdministradorMouseClicked
 
     private void btn_ingresarClienteRegularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarClienteRegularActionPerformed
+   
+    String username = txt_usuario.getText();
+    String password = String.valueOf(txt_password.getPassword());
+    
+    Cliente_Regular clienteReg = new Cliente_Regular();
+    clienteReg.tomarDatosDeBaseDeDatosEIniciarSesion(clienteReg, username, password);
+    
+    if(clienteReg.validarInicio(clienteReg, username, password)){
+     UsuarioMenu menuUsuario = new UsuarioMenu();
+     menuUsuario.setVisible(true);
+     this.dispose();
+     UsuarioActualStatic.descuento = 0.05;
+     
+    }
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_ingresarClienteRegularActionPerformed
 
