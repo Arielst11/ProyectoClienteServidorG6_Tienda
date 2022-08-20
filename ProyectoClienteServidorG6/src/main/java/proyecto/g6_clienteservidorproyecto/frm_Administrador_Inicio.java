@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package proyecto.g6_clienteservidorproyecto;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 /**
  *
@@ -16,6 +17,7 @@ public class frm_Administrador_Inicio extends javax.swing.JFrame {
      */
     public frm_Administrador_Inicio() {
         initComponents();
+        getContentPane().setBackground(Color.white);
     this.setLocationRelativeTo(null);
     }
 
@@ -36,6 +38,7 @@ public class frm_Administrador_Inicio extends javax.swing.JFrame {
         txt_password_Administrador = new javax.swing.JPasswordField();
         btn_IngresarUsuario = new javax.swing.JButton();
         btn_ingresarAdministrador = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,6 +85,8 @@ public class frm_Administrador_Inicio extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Contains/Subtract.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -110,11 +115,12 @@ public class frm_Administrador_Inicio extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btn_IngresarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(94, 94, 94))))
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addComponent(lbl_bienvenido)
                 .addGap(18, 18, 18)
                 .addComponent(lbl_vamos)
@@ -130,7 +136,8 @@ public class frm_Administrador_Inicio extends javax.swing.JFrame {
                 .addComponent(btn_ingresarAdministrador)
                 .addGap(18, 18, 18)
                 .addComponent(btn_IngresarUsuario)
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -216,6 +223,7 @@ this.dispose();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_IngresarUsuario;
     private javax.swing.JButton btn_ingresarAdministrador;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl_bienvenido;
     private javax.swing.JLabel lbl_contraseña;
     private javax.swing.JLabel lbl_usuario;
