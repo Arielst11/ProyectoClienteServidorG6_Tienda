@@ -5,6 +5,8 @@
  */
 package proyecto.g6_clienteservidorproyecto;
 
+import java.awt.Color;
+
 /**
  *
  * @author asanc
@@ -16,6 +18,7 @@ public class AdministradorControl extends javax.swing.JFrame {
      */
     public AdministradorControl() {
         initComponents();
+        getContentPane().setBackground(Color.white);
     this.setLocationRelativeTo(null);
     }
 
@@ -29,6 +32,7 @@ public class AdministradorControl extends javax.swing.JFrame {
     private void initComponents() {
 
         jBcerrarSesion = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMagregarUsuarios = new javax.swing.JMenuItem();
@@ -44,6 +48,8 @@ public class AdministradorControl extends javax.swing.JFrame {
                 jBcerrarSesionActionPerformed(evt);
             }
         });
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Contains/Coding.png"))); // NOI18N
 
         jMenu1.setText("Usuarios");
 
@@ -78,17 +84,18 @@ public class AdministradorControl extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(262, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBcerrarSesion)
-                .addGap(45, 45, 45))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(399, Short.MAX_VALUE)
-                .addComponent(jBcerrarSesion)
-                .addGap(85, 85, 85))
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBcerrarSesion))
         );
 
         pack();
@@ -154,6 +161,7 @@ registro.setVisible(true);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBcerrarSesion;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuItem jMagregarUsuarios;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;

@@ -5,6 +5,8 @@
  */
 package proyecto.g6_clienteservidorproyecto;
 
+import java.awt.Color;
+
 /**
  *
  * @author asanc
@@ -16,6 +18,7 @@ public class UsuarioMenu extends javax.swing.JFrame {
      */
     public UsuarioMenu() {
         initComponents();
+        getContentPane().setBackground(Color.white);
     this.setLocationRelativeTo(null);
     lbl_bienvenido.setText("Bienvenido "+ UsuarioActualStatic.usuarioActual.getNombre());
     }
@@ -35,6 +38,7 @@ public class UsuarioMenu extends javax.swing.JFrame {
         jBcarrito = new javax.swing.JButton();
         jBAgregarAlCarrito = new javax.swing.JButton();
         jBminijuego = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,7 +46,6 @@ public class UsuarioMenu extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         lbl_bienvenido.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_bienvenido.setForeground(new java.awt.Color(0, 0, 0));
 
         jBcerrarSesion.setText("Cerrar sesión");
         jBcerrarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -72,41 +75,47 @@ public class UsuarioMenu extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Contains/Design ohne Titel (27) 1.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBcerrarSesion)
-                .addGap(42, 42, 42))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
+                        .addGap(120, 120, 120)
+                        .addComponent(lbl_bienvenido, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
                         .addComponent(jBcarrito)
-                        .addGap(26, 26, 26)
+                        .addGap(33, 33, 33)
                         .addComponent(jBAgregarAlCarrito)
                         .addGap(37, 37, 37)
                         .addComponent(jBminijuego))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(lbl_bienvenido, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(67, Short.MAX_VALUE))
+                        .addGap(88, 88, 88)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBcerrarSesion)))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(lbl_bienvenido, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(146, 146, 146)
+                .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBcarrito)
                     .addComponent(jBAgregarAlCarrito)
                     .addComponent(jBminijuego))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBcerrarSesion)
-                .addGap(77, 77, 77))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -194,6 +203,7 @@ carrito.setVisible(true);
     private javax.swing.JButton jBcarrito;
     private javax.swing.JButton jBcerrarSesion;
     private javax.swing.JButton jBminijuego;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_bienvenido;
     // End of variables declaration//GEN-END:variables

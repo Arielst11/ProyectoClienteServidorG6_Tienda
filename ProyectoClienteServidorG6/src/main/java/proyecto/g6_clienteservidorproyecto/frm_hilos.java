@@ -4,6 +4,7 @@
  */
 package proyecto.g6_clienteservidorproyecto;
 
+import java.awt.Color;
 import javax.swing.JLabel;
 
 /**
@@ -18,6 +19,7 @@ public class frm_hilos extends javax.swing.JFrame {
     public frm_hilos() {
         initComponents();
         setLocationRelativeTo(null);
+        getContentPane().setBackground(Color.white);
     }
     
     public JLabel getjLabelCarro1 (){
