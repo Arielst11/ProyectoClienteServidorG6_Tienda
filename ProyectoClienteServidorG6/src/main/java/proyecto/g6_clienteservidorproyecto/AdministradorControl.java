@@ -6,7 +6,7 @@
 package proyecto.g6_clienteservidorproyecto;
 
 import java.awt.Color;
-
+import javax.swing.JOptionPane;
 /**
  *
  * @author asanc
@@ -36,12 +36,7 @@ public class AdministradorControl extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMagregarUsuarios = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMverArticulos = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMagregarPromo = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,40 +61,13 @@ public class AdministradorControl extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Artículos");
-
-        jMenuItem1.setText("Agregar Artículos");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+        jMagregarPromo.setText("Agregar promoción");
+        jMagregarPromo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMagregarPromoMouseClicked(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
-
-        jMverArticulos.setText("Ver Artículos");
-        jMenu2.add(jMverArticulos);
-
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Chat");
-
-        jMenuItem2.setText("Servidor");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem2);
-
-        jMenuItem3.setText("Cliente");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem3);
-
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(jMagregarPromo);
 
         setJMenuBar(jMenuBar1);
 
@@ -141,23 +109,22 @@ registro.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jMagregarUsuariosActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jMagregarPromoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMagregarPromoMouseClicked
 
-        
+if((SocketsPantalla.pantalla1) == null &&(SocketsPantalla.pantalla2 == null)){
+frm_pantalla1 promoAgregar = new frm_pantalla1();
+frm_pantalla2 promoCliente = new frm_pantalla2();
+SocketsPantalla.pantalla1 = promoAgregar;
+SocketsPantalla.pantalla2 = promoCliente;
+SocketsPantalla.pantalla1.setVisible(true);
+SocketsPantalla.pantalla2.setVisible(false);     
+}else{
+JOptionPane.showMessageDialog(null, "usted ya ha agregado una promoción del mes");
+}        
 
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-       frm_servidor obj_servidor = new frm_servidor();
-        obj_servidor.setVisible(true);
-        obj_servidor.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-         frm_cliente obj_cliente = new frm_cliente();
-        obj_cliente.setVisible(true);
-        obj_cliente.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMagregarPromoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -197,14 +164,9 @@ registro.setVisible(true);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBcerrarSesion;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMagregarPromo;
     private javax.swing.JMenuItem jMagregarUsuarios;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMverArticulos;
     // End of variables declaration//GEN-END:variables
 }
